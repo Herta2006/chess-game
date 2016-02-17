@@ -14,7 +14,7 @@ public class Game {
     private final Player player1;
     private final Player player2;
     private Player currentPlayer;
-    private boolean isGameOver;
+    private boolean isOver;
     private final List<String> movesHistory = new ArrayList<>();
 
     public Game() {
@@ -52,9 +52,9 @@ public class Game {
         board.setCurrentColorMoves(currentPlayer.getColor());
         board.update(fromX, fromY, toX, toY);
         movesHistory.add(currentPlayer.getColor() + " moves " + fromX + fromY + " " + toX + toY);
-        isGameOver = board.isGameOver();
+        isOver = board.isGameOver();
         board.display();
-        if (isGameOver) {
+        if (isOver) {
             System.out.println("The game is over.  Congrats to " + currentPlayer.getColor().displayName);
         }
         switchPayer();
@@ -65,7 +65,7 @@ public class Game {
     }
 
     public boolean isOver() {
-        return isGameOver;
+        return isOver;
     }
 
     public void printBoard() {
